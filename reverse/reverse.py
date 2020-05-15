@@ -12,6 +12,7 @@ class Node:
     def set_next(self, new_next):
         self.next_node = new_next
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -39,4 +40,20 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        pass
+        ## PLAN ##
+        # set node to be our head
+        head = self.head
+        # set prev to be none
+        prev = None
+        # loop thru list while node.next is not none
+        while head is not None:
+            # # update next_node to be node.next
+            nxt_node = head.next_node
+            # # udpate node.next to be prev
+            head.next_node = prev
+            # # udpate prev to be our node
+            prev = head
+            # # udpate node to be our next_node
+            head = nxt_node
+        # once we leave the while loop we can update our new head to be the last prev prop
+        self.head = prev
