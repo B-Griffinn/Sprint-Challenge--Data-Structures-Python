@@ -10,7 +10,6 @@ class RingBuffer:
 
     def append(self, item):
         # adds item to the buffer
-
         # PLAN #
         # check to see if our storage length is 0
         if len(self.storage) == 0:
@@ -27,7 +26,7 @@ class RingBuffer:
             if self.current.next is not None:
                 # # replace the value of current with the item bc we are at capacity
                 self.current.value = item
-        # # update the curent item to be the next node
+                # # update the curent item to be the next node
                 self.current = self.current.next
             # otherwise replace current.value with incoming item
             else:
